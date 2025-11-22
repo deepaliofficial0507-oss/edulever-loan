@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+  .confirm-card{ background:white; max-width:720px; margin:40px auto; padding:28px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.12); }
+  .confirm-row{ margin-bottom:12px; }
+  .confirm-label{ color:#666; font-size:14px; }
+  .confirm-value{ font-weight:600; font-size:16px; margin-top:4px; }
+  .btn{ padding:10px 16px; border-radius:8px; border:none; cursor:pointer; margin-left:8px; }
+  .btn-edit{ background:#f0f0f0; color:#333; }
+  .btn-confirm{ background:#0058a3; color:#fff; }
+</style>
+
+<div class="confirm-card">
+  <h2>Confirm your loan application</h2>
+  <p>Please check details below. Click <strong>Edit</strong> to go back and change anything, or <strong>Confirm & Submit</strong> to finalize your application.</p>
+
+  <div class="confirm-row">
+    <div class="confirm-label">Full name</div>
+    <div class="confirm-value">{{ data.full_name }}</div>
+  </div>
+  <div class="confirm-row">
+    <div class="confirm-label">Email</div>
+    <div class="confirm-value">{{ data.email }}</div>
+  </div>
+  <div class="confirm-row">
+    <div class="confirm-label">Phone</div>
+    <div class="confirm-value">{{ data.phone }}</div>
+  </div>
+  <div class="confirm-row">
+    <div class="confirm-label">College</div>
+    <div class="confirm-value">{{ data.college_name }}</div>
+  </div>
+  <div class="confirm-row">
+    <div class="confirm-label">Course</div>
+    <div class="confirm-value">{{ data.course_name }}</div>
+  </div>
+  <div class="confirm-row">
+    <div class="confirm-label">Year of study</div>
+    <div class="confirm-value">{{ data.year_of_study }}</div>
+  </div>
+  <div class="confirm-row">
+    <div class="confirm-label">Required amount</div>
+    <div class="confirm-value">₹ {{ data.required_amount }}</div>
+  </div>
+  <div class="confirm-row">
+    <div class="confirm-label">Purpose</div>
+    <div class="confirm-value">{{ data.purpose }}</div>
+  </div>
+
+  <div style="text-align:right; margin-top:18px;">
+    <!-- Edit form: posts back with all fields and 'edit' so the view will re-display the form -->
+    <form method="post" style="display:inline;">
+      {% csrf_token %}
+      {% for k, v in data.items %}
+        <input type="hidden" name="{{ k }}" value="{{ v }}">
+      {% endfor %}
+      <button class="btn btn-edit" name="edit" type="submit" value="1">Edit</button>
+    </form>
+
+    <!-- Confirm form: posts back with 'confirm' to create the record -->
+    <form method="post" style="display:inline;">
+      {% csrf_token %}
+      {% for k, v in data.items %}
+        <input type="hidden" name="{{ k }}" value="{{ v }}">
+      {% endfor %}
+      <button class="btn btn-confirm" name="confirm" type="submit" value="1">Confirm &amp; Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

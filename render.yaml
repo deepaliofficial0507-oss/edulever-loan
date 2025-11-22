@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: edulever
+    env: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn paisa_pazar.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: edulever-db
+          property: connectionString
+
+databases:
+  - name: edulever-db
+    plan: free

@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+.apply-card {
+    background: white;
+    padding: 20px;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    margin: 0 auto;
+}
+
+.apply-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0058a3;
+    font-size: 24px;
+}
+
+.apply-card label {
+    font-weight: 600;
+    margin-top: 12px;
+    display: block;
+    font-size: 15px;
+}
+
+.apply-card input, 
+.apply-card textarea,
+.apply-card select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #bbb;
+    margin-top: 6px;
+    font-size: 15px;
+}
+
+textarea {
+    height: 80px;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #0058a3;
+    color: white;
+    padding: 12px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background: #00457a;
+}
+
+.section-title {
+    margin-top: 25px;
+    font-size: 17px;
+    color: #00457a;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .apply-card {
+        padding: 15px;
+    }
+}
+</style>
+
+
+<div class="apply-card">
+
+<h2>Apply for Student Loan</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- ========================= -->
+    <!-- PERSONAL DETAILS          -->
+    <!-- ========================= -->
+    <div class="section-title">Personal Information</div>
+
+    <label>Full Name *</label>
+    <input type="text" name="full_name" required>
+
+    <label>Father's Name *</label>
+    <input type="text" name="father_name" required>
+
+    <label>Email *</label>
+    <input type="email" name="email" required>
+
+    <label>Phone *</label>
+    <input type="text" name="phone" required>
+
+    <!-- ========================= -->
+    <!-- ACADEMIC DETAILS          -->
+    <!-- ========================= -->
+    <div class="section-title">Academic Information</div>
+
+    <label>College Name *</label>
+    <input type="text" name="college_name" required>
+
+    <label>Course Name *</label>
+    <input type="text" name="course_name" required>
+
+    <label>Year of Study *</label>
+    <input type="text" name="year_of_study" required>
+
+    <!-- ========================= -->
+    <!-- FAMILY INCOME DETAILS     -->
+    <!-- ========================= -->
+    <div class="section-title">Family & Income Details</div>
+
+    <label>Father's Income (₹) *</label>
+    <input type="number" name="father_income" required>
+
+    <label>Total Family Income (₹) *</label>
+    <input type="number" name="family_income" required>
+
+    <label>Required Loan Amount (₹) *</label>
+    <input type="number" name="required_amount" required>
+
+    <label>Purpose / Reason *</label>
+    <textarea name="purpose" required></textarea>
+
+    <!-- ========================= -->
+    <!-- DOCUMENT UPLOADS          -->
+    <!-- ========================= -->
+    <div class="section-title">Upload Documents</div>
+
+    <label>Student Photo (Passport Size) *</label>
+    <input type="file" name="student_photo" accept=".jpg,.jpeg,.png" required>
+
+    <label>Aadhaar / Any ID Proof (PDF/JPG/PNG) *</label>
+    <input type="file" name="id_proof" accept=".pdf,.jpg,.jpeg,.png" required>
+
+    <label>Address Proof (PDF/JPG/PNG) *</label>
+    <input type="file" name="address_proof" accept=".pdf,.jpg,.jpeg,.png" required>
+
+    <label>10th Marksheet *</label>
+    <input type="file" name="marksheet_10" accept=".pdf,.jpg,.jpeg,.png" required>
+
+    <label>12th Marksheet *</label>
+    <input type="file" name="marksheet_12" accept=".pdf,.jpg,.jpeg,.png" required>
+
+    <label>College ID Card / Bonafide Certificate *</label>
+    <input type="file" name="college_id" accept=".pdf,.jpg,.jpeg,.png" required>
+
+    <label>Father's 6-Month Bank Statement *</label>
+    <input type="file" name="bank_statement" accept=".pdf,.jpg,.jpeg,.png" required>
+
+    <button type="submit" class="submit-btn">Submit Application</button>
+
+</form>
+</div>
+
+{% endblock %}

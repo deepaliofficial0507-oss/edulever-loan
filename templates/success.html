@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+  .success-card{ background:white; max-width:720px; margin:40px auto; padding:28px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.12); text-align:center; }
+  .loan-id{ font-size:20px; font-weight:700; color:#0b4f81; margin-bottom:8px; }
+  .small{ color:#666; margin-top:6px; }
+  .btn{ margin-top:18px; padding:10px 16px; background:#0058a3; color:#fff; border-radius:8px; text-decoration:none; }
+</style>
+
+<div class="success-card">
+  <h2>Application received</h2>
+  <img src="{{ loan.student_photo.url }}" width="150" style="border-radius:10px;">
+
+  <div class="loan-id">Application ID: {{ loan.pk }}</div>
+  <p>Thank you, {{ loan.full_name }}. Your application has been received and saved.</p>
+
+  <p class="small">If you want to check status later, visit the Loan Status page.</p>
+
+  <a class="btn" href="{% url 'loan_status' %}">Go to Loan Status</a>
+</div>
+{% endblock %}

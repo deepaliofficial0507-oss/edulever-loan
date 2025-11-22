@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+.confirm-box {
+    background:white;
+    width:500px;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+.confirm-box h2 {
+    text-align:center;
+    color:#0058a3;
+    margin-bottom:20px;
+}
+.item { margin-bottom:10px; }
+.label { font-weight:600; color:#003f66; }
+.value { color:#222; }
+.buttons { margin-top:20px; display:flex; justify-content:space-between; }
+.btn-back, .btn-final {
+    padding:10px 20px;
+    border-radius:6px;
+    border:none;
+    cursor:pointer;
+}
+.btn-back { background:#777; color:white; }
+.btn-final { background:#0058a3; color:white; }
+</style>
+
+<div class="confirm-box">
+    <h2>Confirm Your Details</h2>
+
+    <div class="item"><span class="label">Full Name:</span> <span class="value">{{ loan.full_name }}</span></div>
+    <div class="item"><span class="label">Father’s Name:</span> <span class="value">{{ loan.father_name }}</span></div>
+    <div class="item"><span class="label">Email:</span> <span class="value">{{ loan.email }}</span></div>
+    <div class="item"><span class="label">Phone:</span> <span class="value">{{ loan.phone }}</span></div>
+
+    <div class="item"><span class="label">College:</span> <span class="value">{{ loan.college_name }}</span></div>
+    <div class="item"><span class="label">Course:</span> <span class="value">{{ loan.course_name }}</span></div>
+    <div class="item"><span class="label">Year of Study:</span> <span class="value">{{ loan.year_of_study }}</span></div>
+    <div class="confirm-item">
+    <span class="confirm-label">Student Photo:</span>
+    <img src="{{ loan.student_photo.url }}" width="120">
+    </div>
+
+    <div class="item"><span class="label">Father Income:</span> ₹{{ loan.father_income }}</div>
+    <div class="item"><span class="label">Family Income:</span> ₹{{ loan.family_income }}</div>
+    <div class="item"><span class="label">Required Amount:</span> ₹{{ loan.required_amount }}</div>
+
+    <div class="item"><span class="label">Purpose:</span> <span class="value">{{ loan.purpose }}</span></div>
+
+    <div class="buttons">
+        <a href="{% url 'apply_loan' %}"><button class="btn-back">Back & Edit</button></a>
+
+        <form method="POST" action="{% url 'apply_submit' %}">
+            {% csrf_token %}
+            <button class="btn-final">Submit Application</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
