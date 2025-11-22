@@ -126,27 +126,24 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+# Static files (CSS, JavaScript, Images)
+# --------------------------------------
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'statics']  # <-- your folder is named 'statics'
-STATIC_ROOT = BASE_DIR / "staticfiles"
 
+# Local static folder during development
+STATICFILES_DIRS = [
+    BASE_DIR / 'statics',
+]
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
-# For production (optional but safe)
+# Folder where Render will collect static files
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Make sure Django finds both static and media files in development
-import os
-from django.conf import settings
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# Whitenoise for production static file serving
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
+# Media files (uploads)
+# --------------------------------------
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
