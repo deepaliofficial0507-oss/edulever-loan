@@ -1,150 +1,22 @@
-/* General Page Style */
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #74ABE2, #5563DE);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Common Form Container */
-.form-container, .signup-container {
-    background: white;
-    padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    width: 350px;
-}
-
-/* Headings */
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #003366;
-}
-
-/* Form Inputs */
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-/* Buttons */
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #0052cc;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #003d99;
-}
-
-/* Paragraphs and Links */
-p {
-    text-align: center;
-    margin-top: 15px;
-}
-
-a {
-    color: #0052cc;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* For Centering Messages */
-.error-message {
-    color: red;
-    text-align: center;
-}
-
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-}
-
-.auth-card {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-    width: 350px;
-    text-align: center;
-}
-
-.auth-card h2 {
-    color: #003366;
-    margin-bottom: 20px;
-}
-
-.auth-card form label {
-    display: block;
-    text-align: left;
-    margin-top: 10px;
-    color: #333;
-    font-weight: 500;
-}
-
-.auth-card form input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    outline: none;
-}
-
-.auth-card button {
-    width: 100%;
-    margin-top: 20px;
-    background-color: #0052cc;
-    color: white;
-    border: none;
-    padding: 10px 0;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.auth-card button:hover {
-    background-color: #003d99;
-}
-
-.auth-card p {
-    margin-top: 15px;
-}
-
-.auth-card a {
-    color: #0052cc;
-    text-decoration: none;
-}
-
-.auth-card a:hover {
-    text-decoration: underline;
-}
-
+/* ===========================
+   GLOBAL PAGE STYLE
+=========================== */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #74ABE2, #5563DE);
     margin: 0;
     padding: 0;
+    display: block;      /* FIX */
+    height: auto;        /* FIX */
 }
+
+html, body {
+    overflow-x: hidden;  /* Fix mobile white gaps */
+}
+
+/* ===========================
+   FORM + AUTH PAGES
+=========================== */
 
 .auth-container {
     display: flex;
@@ -167,12 +39,6 @@ body {
     margin-bottom: 20px;
 }
 
-.auth-logo img {
-    width: 80px;
-    height: auto;
-}
-
-
 .auth-card form label {
     display: block;
     text-align: left;
@@ -206,10 +72,6 @@ body {
     background-color: #003d99;
 }
 
-.auth-card p {
-    margin-top: 15px;
-}
-
 .auth-card a {
     color: #0052cc;
     text-decoration: none;
@@ -219,16 +81,21 @@ body {
     text-decoration: underline;
 }
 
+/* ===========================
+   NAVBAR LOGO FIX
+=========================== */
+
 .navbar-logo img {
-    width: 100px;    /* reduce size */
-    height: auto;    /* keep proportions */
+    width: 100px;
+    height: auto;
 }
 
-/* FIX MOBILE WHITE SPACE */
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;  /* stop horizontal scroll */
+/* ===========================
+   RESPONSIVE FIXES
+=========================== */
+
+* {
+    box-sizing: border-box;
 }
 
 .container, .content, main {
@@ -236,47 +103,52 @@ body, html {
     overflow-x: hidden;
 }
 
-.form-container {
-    width: 95%;
-    max-width: 520px;
-    margin: auto;
+/* Fix loan card width */
+.loan-box, .loan-card {
+    width: 90% !important;
+    margin: 20px auto !important;
 }
 
-/* Make backgrounds responsive */
-.background, .banner {
-    background-size: cover;
-    background-position: center;
+/* Hero section stays on top ALWAYS */
+.hero-section {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Fix big white gaps on mobile */
-* {
-    box-sizing: border-box;
+/* Ensure student loan box is below text */
+.loan-box {
+    margin-top: 20px;
 }
 
-@media (max-width: 600px) {
-    body {
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+/* Fix image responsiveness */
+.student-img-container img {
+    width: 200px;
+    border-radius: 10px;
+    opacity: 0.95;
+    box-shadow: 0px 8px 22px rgba(0,0,0,0.25);
+    transition: 0.3s;
 }
-/* ----------- FIX MOBILE RESPONSIVE WHITE SPACE ----------- */
-@media(max-width: 768px) {
-    .loan-card {
-        width: 90% !important;
-        margin: 0 auto !important;
-    }
 
-    .hero-container {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-    }
+.student-img-container img:hover {
+    transform: scale(1.04);
+}
 
-    .hero-left, .hero-right {
-        width: 100% !important;
-    }
-
+/* Mobile fixes */
+@media (max-width: 768px) {
     body, html {
         overflow-x: hidden !important;
+    }
+
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .student-img-container img {
+        width: 150px;
     }
 }
