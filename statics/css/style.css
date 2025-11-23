@@ -6,122 +6,90 @@ body {
     background: linear-gradient(135deg, #74ABE2, #5563DE);
     margin: 0;
     padding: 0;
-    display: block;      /* FIX */
-    height: auto;        /* FIX */
 }
 
 html, body {
-    overflow-x: hidden;  /* Fix mobile white gaps */
+    overflow-x: hidden; 
 }
 
-/* ===========================
-   FORM + AUTH PAGES
-=========================== */
-
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.auth-card {
-    background: white;
-    padding: 40px 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    width: 370px;
-    text-align: center;
-}
-
-.auth-card h2 {
-    color: #003366;
-    margin-bottom: 20px;
-}
-
-.auth-card form label {
-    display: block;
-    text-align: left;
-    margin-top: 10px;
-    color: #333;
-    font-weight: 500;
-}
-
-.auth-card form input {
+/* Page container */
+.home-container {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    outline: none;
-}
-
-.auth-card button {
-    width: 100%;
-    margin-top: 20px;
-    background-color: #0052cc;
-    color: white;
-    border: none;
-    padding: 10px 0;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.auth-card button:hover {
-    background-color: #003d99;
-}
-
-.auth-card a {
-    color: #0052cc;
-    text-decoration: none;
-}
-
-.auth-card a:hover {
-    text-decoration: underline;
+    padding: 20px;
 }
 
 /* ===========================
-   NAVBAR LOGO FIX
+   HERO SECTION
 =========================== */
-
-.navbar-logo img {
-    width: 100px;
-    height: auto;
-}
-
-/* ===========================
-   RESPONSIVE FIXES
-=========================== */
-
-* {
-    box-sizing: border-box;
-}
-
-.container, .content, main {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* Fix loan card width */
-.loan-box, .loan-card {
-    width: 90% !important;
-    margin: 20px auto !important;
-}
-
-/* Hero section stays on top ALWAYS */
 .hero-section {
     width: 100%;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px auto;
+    color: white;
 }
 
-/* Ensure student loan box is below text */
+.hero-title {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* ===========================
+   LOAN BOX (The White Box)
+=========================== */
 .loan-box {
-    margin-top: 20px;
+    background: rgba(255,255,255,0.95);
+    width: 90%;
+    max-width: 700px;
+    padding: 30px;
+    margin: 20px auto 50px auto;
+    border-radius: 14px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: 0.3s;
 }
 
-/* Fix image responsiveness */
+.loan-box:hover {
+    transform: translateY(-6px);
+}
+
+.loan-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #003f7d;
+}
+
+.loan-desc {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.apply-btn {
+    display: inline-block;
+    margin-top: 18px;
+    background: #0058a3;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.apply-btn:hover {
+    background: #004b8a;
+}
+
+/* Student image */
+.student-img-container {
+    margin-top: 25px;
+}
+
 .student-img-container img {
     width: 200px;
     border-radius: 10px;
@@ -134,11 +102,49 @@ html, body {
     transform: scale(1.04);
 }
 
-/* Mobile fixes */
+/* ===========================
+   AUTH PAGES (Login/Signup)
+=========================== */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 370px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.auth-card form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.auth-card button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #0052cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
 @media (max-width: 768px) {
-    body, html {
-        overflow-x: hidden !important;
-    }
 
     .hero-title {
         font-size: 26px;
@@ -148,7 +154,12 @@ html, body {
         font-size: 15px;
     }
 
+    .loan-box {
+        width: 92%;
+        padding: 20px;
+    }
+
     .student-img-container img {
-        width: 150px;
+        width: 140px;
     }
 }

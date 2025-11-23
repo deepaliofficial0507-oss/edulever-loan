@@ -2,102 +2,29 @@
 {% load static %}
 
 {% block content %}
-<style>
-.hero-section {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 40px;
-    color: white;
-}
 
-.hero-title {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 12px;
-}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-.hero-subtitle {
-    font-size: 18px;
-    opacity: 0.9;
-}
+<div class="home-container">
 
-.loan-box {
-    background: rgba(255,255,255,0.95);
-    width: 70%;
-    max-width: 700px;
-    padding: 30px;
-    margin: 40px auto;
-    border-radius: 14px;
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
-    text-align: center;
-    transition: 0.3s;
-}
+    <section class="hero-section">
+        <h1 class="hero-title">Fast & Easy Student Loans for Your Education</h1>
+        <p class="hero-subtitle">
+            Get education loans with minimal documents, high approval rate and safe processing.
+        </p>
+    </section>
 
-.loan-box:hover {
-    transform: translateY(-6px);
-    box-shadow: 0px 12px 32px rgba(0,0,0,0.22);
-}
+    <section class="loan-box">
+        <div class="loan-title">Student Loan</div>
+        <p class="loan-desc">Low interest rate | Fast approval | Support for college fees</p>
 
-.loan-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #003f7d;
-}
+        <a href="/loan/apply/" class="apply-btn">Apply Now</a>
 
-.loan-desc {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #333;
-}
+        <div class="student-img-container">
+            <img src="{% static 'images/student.jpg' %}" alt="Student">
+        </div>
+    </section>
 
-.apply-btn {
-    display: inline-block;
-    margin-top: 18px;
-    background: #0058a3;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 17px;
-    transition: 0.3s;
-}
-
-.apply-btn:hover {
-    background: #004b8a;
-}
-
-.student-img-container {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.student-img-container img {
-    width: 200px;
-    border-radius: 10px;
-    opacity: 0.95;
-    box-shadow: 0px 8px 22px rgba(0,0,0,0.25);
-    transition: 0.3s;
-}
-
-.student-img-container img:hover {
-    transform: scale(1.04);
-}
-</style>
-
-<div class="hero-section">
-    <h1 class="hero-title">Fast & Easy Student Loans for Your Education</h1>
-    <p class="hero-subtitle">Get education loans with minimal documents, high approval rate and safe processing.</p>
-</div>
-
-<div class="loan-box">
-    <div class="loan-title">Student Loan</div>
-    <p class="loan-desc">Low interest rate | Fast approval | Support for college fees</p>
-
-    <a href="/loan/apply/" class="apply-btn">Apply Now</a>
-
-    <div class="student-img-container">
-        <img src="{% static 'images/student.jpg' %}" alt="Student">
-    </div>
 </div>
 
 {% endblock %}
