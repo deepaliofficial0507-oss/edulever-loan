@@ -223,3 +223,39 @@ body {
     width: 100px;    /* reduce size */
     height: auto;    /* keep proportions */
 }
+
+/* FIX MOBILE WHITE SPACE */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;  /* stop horizontal scroll */
+}
+
+.container, .content, main {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.form-container {
+    width: 95%;
+    max-width: 520px;
+    margin: auto;
+}
+
+/* Make backgrounds responsive */
+.background, .banner {
+    background-size: cover;
+    background-position: center;
+}
+
+/* Fix big white gaps on mobile */
+* {
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    body {
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
