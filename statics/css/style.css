@@ -259,3 +259,24 @@ body, html {
         background-repeat: no-repeat;
     }
 }
+/* ----------- FIX MOBILE RESPONSIVE WHITE SPACE ----------- */
+@media(max-width: 768px) {
+    .loan-card {
+        width: 90% !important;
+        margin: 0 auto !important;
+    }
+
+    .hero-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .hero-left, .hero-right {
+        width: 100% !important;
+    }
+
+    body, html {
+        overflow-x: hidden !important;
+    }
+}
